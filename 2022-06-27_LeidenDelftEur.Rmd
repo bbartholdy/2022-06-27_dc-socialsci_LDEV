@@ -5,7 +5,7 @@ institute: Leiden University, TU Delft, & Erasmus University Rotterdam
 date: '2022-06-27 *(Updated: `r Sys.Date()`)*'
 output:
   xaringan::moon_reader:
-    css: ../assets/css/xaringan-themer.css
+    css: xaringan-themer.css
     nature:
       highlightStyle: github
       highlightLines: true
@@ -16,7 +16,7 @@ output:
 library(ggplot2)
 library(dplyr)
 library(tidyr)
-library(here)
+#library(here)
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(
   #fig.width=9, fig.height=3.5, fig.retina=3,
@@ -27,7 +27,7 @@ knitr::opts_chunk$set(
   warning = FALSE,
   hiline = TRUE
 )
-interviews_plotting <- readr::read_csv(here("assets/data/interviews_plotting.csv"))
+interviews_plotting <- readr::read_csv("data/interviews_plotting.csv")
 percent_items <- interviews_plotting %>% 
     group_by(village) %>%
     summarize(across(bicycle:no_listed_items, ~ sum(.x) / n() * 100)) %>% 
@@ -42,7 +42,7 @@ style_duo(
   text_bold_color = "#33638DFF",
   code_inline_color = "#fde725ff",
   link_color = "#fde725ff",
-  outfile = here("assets/css/xaringan-themer.css")
+  #outfile = "xaringan-themer.css"
 )
 ```
 
